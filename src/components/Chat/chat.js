@@ -7,7 +7,7 @@ export default {
     ...mapGetters(['messages']), 
   }, 
   methods: {
-    ...mapActions(['SET_MESSAGE']), 
+    ...mapActions([SET_MESSAGE]), 
     send_message() {
       this.SET_MESSAGE(this.message) // this.messages.push(this.message)
       this.message = ""
