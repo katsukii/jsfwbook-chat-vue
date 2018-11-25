@@ -1,13 +1,19 @@
 import { mapGetters, mapActions } from 'vuex'
-import { SET_MESSAGE } from '../../store/mutation-types'
+import { 
+  GET_CHANNELS, 
+  SET_MESSAGE 
+} from '../../store/mutation-types'
 
 export default {
   name: 'chat', 
+  mounted() {
+    this.GET_CHANNELS()
+  }, 
   computed: {
-    ...mapGetters(['messages']), 
+    ...mapGetters(['messages', 'channels']), 
   }, 
   methods: {
-    ...mapActions([SET_MESSAGE]), 
+    ...mapActions([SET_MESSAGE, GET_CHANNELS]), 
     send_message() {
       this.SET_MESSAGE(this.message) // this.messages.push(this.message)
       this.message = ""
@@ -15,7 +21,6 @@ export default {
   }, 
   data() {
     return {
-      channels: ["general", "random"], 
       message: ""
     }
   }
